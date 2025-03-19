@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .menu {
+            background-color: #4b0082;
+            padding: 10px;
+        }
+        .menu a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#">File</a>
+        <a href="#">Edit</a>
+        <a href="#">Run</a>
+        <a href="#about">About Us</a>
+    </div>
+    <div class="container">
+        <h1>Cek Angka Format Ilmiah</h1>
+        <input type="text" id="numberInput" placeholder="Masukkan angka...">
+        <button onclick="checkNumber()">Cek</button>
+        <p id="result"></p>
+    </div>
+    <div id="about" class="container">
+        <h2>About Us</h2>
+        <p>Nama: Syalom Sirita</p>
+        <p>NIM: 231011060049</p>
+    </div>
+    <script>
+        function checkNumber() {
+            const input = document.getElementById("numberInput").value.trim();
+            const sciNotation = /^-?\d+(\.\d+)?(e[-+]?\d+)?$/i;
+            
+            if (sciNotation.test(input)) {
+                document.getElementById("result").innerText = "Yes, it is a number";
+            } else {
+                document.getElementById("result").innerText = "No, it is not a number";
+            }
+        }
+    </script>
+</body>
+</html>
